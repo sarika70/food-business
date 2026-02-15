@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a simple marketing website for a food business to showcase the menu, share the business story, and provide customer contact options.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Food-themed hero banner image with appetizing plated food on a warm neutral background (hero-food.dim_1600x900.png)\n- Simple minimalist logo mark for a food business in warm earthy tones (logo-mark.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-multi-page-marketing-website-for-a-food-business-with-clear-navigation-and-the-following-pages-sections-home-hero-highlights-menu-categorized-items-with-name-description-price-about-story-business-story-values-and-contact-contact-details-contact-form-all-user-facing-text-must-be-in-english",
+      "title": "Create a responsive multi-page marketing website for a food business with clear navigation and the following pages/sections: Home (hero + highlights), Menu (categorized items with name/description/price), About/Story (business story + values), and Contact (contact details + contact form). All user-facing text must be in English.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-coherent-visual-theme-for-the-food-business-site-and-apply-it-consistently-across-pages-color-palette-typography-spacing-component-styling-do-not-use-a-blue-purple-primary-palette",
+      "title": "Implement a coherent visual theme for the food business site and apply it consistently across pages (color palette, typography, spacing, component styling). Do not use a blue/purple primary palette.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-form-submission-flow-that-persists-submissions-in-the-motoko-backend-the-frontend-should-submit-the-form-to-the-backend-and-show-success-error-feedback-to-the-user",
+      "title": "Add a contact form submission flow that persists submissions in the Motoko backend. The frontend should submit the form to the backend and show success/error feedback to the user.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-static-image-assets-for-the-site-stored-under-frontend-public-assets-generated-and-use-them-in-the-ui-e-g-a-hero-banner-image-and-a-simple-logo-mark-do-not-serve-these-images-from-the-backend",
+      "title": "Generate and include static image assets for the site (stored under frontend/public/assets/generated) and use them in the UI (e.g., a hero banner image and a simple logo mark). Do not serve these images from the backend.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a food business website with menu showcase, story/about section, and contact page/form",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Food business marketing website (Menu, About/Story, Contact)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

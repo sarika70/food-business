@@ -1,0 +1,110 @@
+{
+  "kind": "build_request",
+  "title": "Food business marketing website (Menu, About/Story, Contact)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive multi-page marketing website for a food business with clear navigation and the following pages/sections: Home (hero + highlights), Menu (categorized items with name/description/price), About/Story (business story + values), and Contact (contact details + contact form). All user-facing text must be in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "website for food business"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation allows switching between Home, Menu, About/Story, and Contact without page reload issues.",
+        "Menu page displays at least 3 categories and at least 3 items per category, each with name, short description, and price.",
+        "Contact page includes visible contact details (at minimum: phone and/or email and/or address placeholders) and a working contact form UI with validation messages in English.",
+        "Layout is mobile-friendly and remains readable and usable on small screens."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a coherent visual theme for the food business site and apply it consistently across pages (color palette, typography, spacing, component styling). Do not use a blue/purple primary palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "website for food business"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share consistent header/footer styling, typography, and button/input styles.",
+        "Primary palette is not blue/purple; theme is clearly food/restaurant appropriate (e.g., warm neutrals, earthy tones, etc.).",
+        "The site has a polished, cohesive look with consistent spacing and section structure."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a contact form submission flow that persists submissions in the Motoko backend. The frontend should submit the form to the backend and show success/error feedback to the user.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "website for food business"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form collects at least: name, email (or phone), and message.",
+        "Submitting the form stores the submission in the backend (in canister memory).",
+        "UI shows a success state after a successful submission and an error state if the backend call fails.",
+        "Basic client-side validation prevents empty required fields from being submitted."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Generate and include static image assets for the site (stored under frontend/public/assets/generated) and use them in the UI (e.g., a hero banner image and a simple logo mark). Do not serve these images from the backend.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "website for food business"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images exist at frontend/public/assets/generated and are referenced directly by the frontend.",
+        "Home page uses the generated hero image in the hero section.",
+        "Site header/footer (or home hero) displays the generated logo image."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use the pre-injected React + TypeScript + Tailwind + shadcn UI + React Query template.",
+    "Do not modify files under frontend/src/components/ui or other immutable paths listed in system context; compose them instead.",
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo).",
+    "Use English for all user-facing text."
+  ],
+  "nonGoals": [
+    "Online ordering, checkout, or payments.",
+    "Delivery tracking, live order status, or real-time chat.",
+    "Third-party authentication providers (only Internet Identity is supported, but not required for this marketing site).",
+    "External databases or third-party email/SMS sending integrations."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Food-themed hero banner image with appetizing plated food on a warm neutral background (hero-food.dim_1600x900.png)",
+      "Simple minimalist logo mark for a food business in warm earthy tones (logo-mark.dim_512x512.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

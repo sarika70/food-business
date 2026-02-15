@@ -1,0 +1,74 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T13:29:13.141Z",
+  "summary": "Implements a multi-page food marketing site using TanStack Router with Home/Menu/About/Contact pages, a warm (non-blue/purple) theme, and a contact form UI that calls a Motoko backend. However, the required generated static image files are not shown as added, and the backend persistence logic appears incorrect/incomplete based on the diff summary.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Generate and include static image assets under frontend/public/assets/generated (hero-food.dim_1600x900.png and logo-mark.dim_512x512.png) and reference them in the UI.",
+      "reason": "The UI references the generated image paths, but the diff does not show any files added under frontend/public/assets/generated, so the required static assets themselves are not implemented/committed in the provided changes.",
+      "evidence": [
+        "frontend/src/pages/HomePage.tsx (references /assets/generated/hero-food.dim_1600x900.png)",
+        "frontend/src/components/SiteLayout.tsx (references /assets/generated/logo-mark.dim_512x512.png)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Persist contact form submissions in the Motoko backend (in canister memory) and provide success/error handling.",
+      "reason": "While a submit method exists, the backend storage implementation appears non-functional: submissions is declared as an immutable let List.empty, and the code calls submissions.add(...) without reassigning (and List.add is not shown as producing a stored result). This does not clearly implement actual persistence in memory based on the provided snippet.",
+      "evidence": [
+        "backend/main.mo (let submissions = List.empty...; submissions.add((name, email, message));)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication provider/wiring added (InternetIdentityProvider, useInternetIdentity, identity-aware actor creation).",
+      "reason": "The BuildRequest states Internet Identity is supported but not required for this marketing site; adding full II context/hooks is beyond the requested marketing-site requirements.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Backend/admin-style retrieval of all contact submissions and corresponding React Query hook.",
+      "reason": "The BuildRequest only asks to submit and persist contact form submissions and show success/error to the user; it does not request an endpoint/UI hook to list or retrieve all submissions.",
+      "evidence": [
+        "backend/main.mo (getAllSubmissions)",
+        "frontend/src/hooks/useQueries.ts (useGetAllSubmissions)"
+      ]
+    },
+    {
+      "description": "Footer social media links/icons (Instagram/Facebook) included in layout.",
+      "reason": "Social links are not mentioned in the BuildRequest requirements or acceptance criteria.",
+      "evidence": [
+        "frontend/src/components/SiteLayout.tsx (imports SiInstagram, SiFacebook)"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/ContactForm.tsx",
+    "frontend/src/components/SiteLayout.tsx",
+    "frontend/src/data/menu.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/MenuPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

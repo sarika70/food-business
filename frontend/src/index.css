@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        /* Warm terracotta and cream palette */
+        --background: 0.97 0.015 45;
+        --foreground: 0.25 0.025 35;
+        --card: 0.99 0.01 50;
+        --card-foreground: 0.25 0.025 35;
+        --popover: 0.99 0.01 50;
+        --popover-foreground: 0.25 0.025 35;
+        /* Rich terracotta primary */
+        --primary: 0.55 0.15 25;
+        --primary-foreground: 0.98 0.01 50;
+        /* Warm sand secondary */
+        --secondary: 0.92 0.03 55;
+        --secondary-foreground: 0.30 0.025 35;
+        --muted: 0.94 0.02 50;
+        --muted-foreground: 0.50 0.02 35;
+        /* Olive green accent */
+        --accent: 0.65 0.08 130;
+        --accent-foreground: 0.98 0.01 50;
+        --destructive: 0.55 0.22 15;
+        --destructive-foreground: 0.98 0.01 50;
+        --border: 0.88 0.02 45;
+        --input: 0.88 0.02 45;
+        --ring: 0.55 0.15 25;
+        --chart-1: 0.55 0.15 25;
+        --chart-2: 0.65 0.08 130;
+        --chart-3: 0.70 0.12 40;
+        --chart-4: 0.45 0.10 20;
+        --chart-5: 0.60 0.10 80;
+    }
+
+    .dark {
+        --background: 0.20 0.02 30;
+        --foreground: 0.95 0.01 50;
+        --card: 0.25 0.025 35;
+        --card-foreground: 0.95 0.01 50;
+        --popover: 0.22 0.02 32;
+        --popover-foreground: 0.95 0.01 50;
+        --primary: 0.65 0.12 30;
+        --primary-foreground: 0.98 0.01 50;
+        --secondary: 0.30 0.03 40;
+        --secondary-foreground: 0.95 0.01 50;
+        --muted: 0.28 0.025 38;
+        --muted-foreground: 0.70 0.02 45;
+        --accent: 0.55 0.10 120;
+        --accent-foreground: 0.98 0.01 50;
+        --destructive: 0.50 0.20 15;
+        --destructive-foreground: 0.98 0.01 50;
+        --border: 0.35 0.03 35;
+        --input: 0.35 0.03 35;
+        --ring: 0.65 0.12 30;
+        --chart-1: 0.65 0.12 30;
+        --chart-2: 0.55 0.10 120;
+        --chart-3: 0.70 0.12 40;
+        --chart-4: 0.50 0.08 25;
+        --chart-5: 0.60 0.10 80;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer components {
+    .hero-gradient {
+        background: linear-gradient(135deg, oklch(0.55 0.15 25 / 0.95) 0%, oklch(0.45 0.12 20 / 0.9) 100%);
+    }
+}

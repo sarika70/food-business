@@ -1,0 +1,138 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Food business marketing website (React + TS + Tailwind + shadcn/ui)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive multi-page marketing site with Home, Menu, About/Story, and Contact pages and clear client-side navigation (English text only).",
+      "acceptanceCriteria": [
+        "Navigation allows switching between Home, Menu, About/Story, and Contact without page reload issues.",
+        "Menu page displays at least 3 categories and at least 3 items per category, each with name, short description, and price.",
+        "Contact page includes visible contact details (at minimum: phone and/or email and/or address placeholders) and a working contact form UI with validation messages in English.",
+        "Layout is mobile-friendly and remains readable and usable on small screens."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell with client-side routing for Home, Menu, About/Story, and Contact, plus shared layout (header/footer) and navigation links. Use the shadcn-ui components (e.g., Button, Separator) for consistent navigation styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Add a reusable layout component that renders a consistent header (nav) and footer across all pages, including responsive behavior (mobile menu or stacked nav). Use shadcn-ui components (e.g., Button, Sheet/Dropdown if available) to compose the header/nav. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Implement the Home page with a hero section and business highlights (English copy), structured to be responsive and readable on small screens. Use shadcn-ui components (e.g., Card, Badge) for highlight sections. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "create",
+          "description": "Implement the Menu page with at least 3 categories and at least 3 items per category (name, short description, price), rendered with a responsive grid/stacked layout. Use shadcn-ui components (e.g., Card) for menu item presentation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Implement the About/Story page with the business story and values (English copy), with a responsive section layout and consistent typography. Use shadcn-ui components (e.g., Card) as needed. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Implement the Contact page structure with visible contact details (phone/email/address placeholders in English) and include the contact form section (wired in REQ-3). Use shadcn-ui components (e.g., Card) for page sections. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/data/menu.ts",
+          "operation": "create",
+          "description": "Add static menu data (at least 3 categories, 3 items each) to power the Menu page rendering (name/description/price)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a cohesive warm/earthy visual theme (no blue/purple primary palette) with consistent typography, spacing, and component styling across pages.",
+      "acceptanceCriteria": [
+        "All pages share consistent header/footer styling, typography, and button/input styles.",
+        "Primary palette is not blue/purple; theme is clearly food/restaurant appropriate (e.g., warm neutrals, earthy tones, etc.).",
+        "The site has a polished, cohesive look with consistent spacing and section structure."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles and Tailwind layer setup, and define a warm/earthy theme via CSS variables used by shadcn/ui tokens (avoid blue/purple as primary). Ensure consistent base typography, spacing defaults, and background/foreground colors."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions as needed to support the chosen warm/earthy palette and typography (e.g., font families), keeping compatibility with existing CSS variable-based color tokens."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Refine header/footer styling to match the global theme (spacing, borders, background, typographic hierarchy) and ensure consistent button/link styling. Use shadcn-ui components to keep styling consistent. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement contact form submission via the Motoko backend capability and display success/error feedback with basic client-side validation.",
+      "acceptanceCriteria": [
+        "Contact form collects at least: name, email (or phone), and message.",
+        "Submitting the form stores the submission in the backend (in canister memory).",
+        "UI shows a success state after a successful submission and an error state if the backend call fails.",
+        "Basic client-side validation prevents empty required fields from being submitted."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/services/backendClient.ts",
+          "operation": "create",
+          "description": "Create a small typed frontend wrapper that uses the core-infrastructure backend connection configuration to call the backend capability submitContactForm(name, email, message). (No backend changes here.)"
+        },
+        {
+          "path": "frontend/src/components/ContactForm.tsx",
+          "operation": "create",
+          "description": "Build the contact form UI (name, email, message) with client-side validation and English validation messages. Use React Query for submission state (loading/success/error). Use shadcn-ui components (e.g., Form primitives if present, Input, Textarea, Button, Alert) for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Wire the ContactForm component into the Contact page and render success/error feedback states clearly after submission attempts. Use shadcn-ui components (e.g., Alert) for feedback styling. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add required generated static images under frontend/public/assets/generated and use them in the UI (hero banner and logo mark) without serving images from the backend.",
+      "acceptanceCriteria": [
+        "Generated images exist at frontend/public/assets/generated and are referenced directly by the frontend.",
+        "Home page uses the generated hero image in the hero section.",
+        "Site header/footer (or home hero) displays the generated logo image."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/hero-food.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated static hero banner image asset at frontend/public/assets/generated/hero-food.dim_1600x900.png and ensure it is referenced directly by the frontend."
+        },
+        {
+          "path": "frontend/public/assets/generated/logo-mark.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static logo mark asset at frontend/public/assets/generated/logo-mark.dim_512x512.png and ensure it is referenced directly by the frontend."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/hero-food.dim_1600x900.png in the Home hero section and incorporate frontend/public/assets/generated/logo-mark.dim_512x512.png in the hero/branding area. Ensure responsive image presentation."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Display frontend/public/assets/generated/logo-mark.dim_512x512.png in the site header (and/or footer) alongside the business name for consistent branding across pages."
+        }
+      ]
+    }
+  ]
+}
