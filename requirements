@@ -1,0 +1,72 @@
+# 📦 Requirements
+
+To run this project on your system, you need the following:
+
+---
+
+## 🖥️ System Requirements
+
+| Requirement     | Version                 |
+| --------------- | ----------------------- |
+| **Node.js**     | v18 or higher           |
+| **npm**         | v9 or higher            |
+| **Git**         | Latest                  |
+| **Web Browser** | Chrome / Edge / Firefox |
+
+---
+
+## 📚 Libraries & Frameworks
+
+These are installed automatically when you run `npm install`.
+
+### Core
+
+* React
+* TypeScript
+* Vite
+
+### UI & Styling
+
+* Tailwind CSS
+* ShadCN UI
+* Lucide React (icons)
+
+### Data Handling
+
+* React Query (`@tanstack/react-query`)
+* Sonner (toast notifications)
+
+### Routing & Auth
+
+* AdminGuard
+* Internet Identity Provider
+
+---
+
+## ⚙️ Installation
+
+After downloading or cloning the project:
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 🌐 Browser Support
+
+* Chrome (recommended)
+* Microsoft Edge
+* Firefox
+* Safari
+
+---
+
+## 📌 Notes
+
+* Internet connection is required for API calls.
+* Admin access is protected.
+* Backend API must be running for product management.
+
+-
