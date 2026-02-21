@@ -1,19 +1,19 @@
-# 🍽️ Food Business Website
+#  Food Business Website
 
 A modern, responsive **Food Business Web Application** built with **React, TypeScript, Tailwind CSS, and React Query**.
 This project provides a clean menu browsing experience for customers and a powerful admin panel to manage products.
 
 ---
 
-## 🚀 Live Features
+##  Live Features
 
-### 👨‍🍳 Customer Side
+###  Customer Side
 
 * Browse food menu by categories
 * View dish prices, descriptions, and tags
 * Responsive design for mobile, tablet & desktop
 
-### 🛠️ Admin Panel
+###  Admin Panel
 
 * Add new food items
 * Edit existing products
@@ -22,7 +22,7 @@ This project provides a clean menu browsing experience for customers and a power
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 | Technology       | Purpose                 |
 | ---------------- | ----------------------- |
@@ -36,7 +36,7 @@ This project provides a clean menu browsing experience for customers and a power
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 food-business/
@@ -57,15 +57,15 @@ food-business/
 
 ---
 
-## ▶️ How to Run Locally
+##  How to Run Locally
 
-### 1️⃣ Install dependencies
+### 1️ Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2️⃣ Start the app
+### 2️ Start the app
 
 ```bash
 npm run dev
@@ -79,20 +79,14 @@ http://localhost:5173
 
 ---
 
-## 🔐 Admin Access
+##  Admin Access
 
 The Admin Panel is protected using an **AdminGuard**.
 Only authorized users can access product management.
 
----
 
-## 📸 Screenshots
 
-*(Add screenshots here later for more impact)*
-
----
-
-## 📌 Future Improvements
+##  Future Improvements
 
 * Online ordering system
 * User authentication
@@ -102,7 +96,7 @@ Only authorized users can access product management.
 
 ---
 
-## 🧑‍💻 Author
+##  Author
 
 **Sarika**
 GitHub: [https://github.com/sarika70](https://github.com/sarika70)
